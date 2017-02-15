@@ -75,7 +75,9 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="Pjy-wn-7HX" id="EBC-Eb-nbk"/>
+                        <outlet property="loginButton" destination="qeo-hb-zwk" id="Q24-np-ass"/>
                         <outlet property="passwordTextField" destination="kdX-uT-351" id="jVr-3f-b8x"/>
+                        <outlet property="registerButton" destination="yVm-fm-qrg" id="RXH-Of-fpU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -104,26 +106,29 @@
         <!--Unit6Final-StaGram-->
         <scene sceneID="Cwk-YQ-ifY">
             <objects>
-                <tableViewController id="HXp-WQ-USJ" sceneMemberID="viewController">
+                <tableViewController id="HXp-WQ-USJ" customClass="FeedTableViewController" customModule="AC3_2_Final" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="504" sectionHeaderHeight="28" sectionFooterHeight="28" id="6tv-D9-0ot">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="504" id="axG-oi-uO5">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedTableViewCellIdentifier" rowHeight="504" id="axG-oi-uO5" customClass="FeedTableViewCell" customModule="AC3_2_Final" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="504"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="axG-oi-uO5" id="DWq-5O-hdS">
                                     <frame key="frameInset" width="375" height="503"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EBD-yL-jqM"/>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k3m-Sr-51j">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="k3m-Sr-51j">
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="aF0-rg-ih4"/>
+                                            </constraints>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="EBD-yL-jqM"/>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="EBD-yL-jqM" firstAttribute="leading" secondItem="DWq-5O-hdS" secondAttribute="leading" id="5cW-AT-lY6"/>
@@ -131,13 +136,17 @@
                                         <constraint firstItem="EBD-yL-jqM" firstAttribute="top" secondItem="DWq-5O-hdS" secondAttribute="top" id="DdQ-Le-Xcf"/>
                                         <constraint firstAttribute="trailing" secondItem="EBD-yL-jqM" secondAttribute="trailing" id="M6O-r3-iU0"/>
                                         <constraint firstItem="EBD-yL-jqM" firstAttribute="centerX" secondItem="DWq-5O-hdS" secondAttribute="centerX" id="M96-9E-ua4"/>
-                                        <constraint firstItem="k3m-Sr-51j" firstAttribute="leading" secondItem="DWq-5O-hdS" secondAttribute="leading" constant="8" id="Zl9-9r-TBb"/>
+                                        <constraint firstItem="k3m-Sr-51j" firstAttribute="leading" secondItem="DWq-5O-hdS" secondAttribute="leading" constant="16" id="Zl9-9r-TBb"/>
                                         <constraint firstItem="k3m-Sr-51j" firstAttribute="top" secondItem="EBD-yL-jqM" secondAttribute="bottom" constant="8" id="akV-lW-4xM"/>
-                                        <constraint firstAttribute="trailing" secondItem="k3m-Sr-51j" secondAttribute="trailing" constant="8" id="c2i-ev-HHC"/>
+                                        <constraint firstAttribute="trailing" secondItem="k3m-Sr-51j" secondAttribute="trailing" constant="16" id="c2i-ev-HHC"/>
                                         <constraint firstItem="EBD-yL-jqM" firstAttribute="height" secondItem="DWq-5O-hdS" secondAttribute="width" id="mDu-VF-U8x"/>
                                         <constraint firstItem="EBD-yL-jqM" firstAttribute="width" secondItem="DWq-5O-hdS" secondAttribute="width" id="vv0-Zp-sb6"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="feedImageView" destination="EBD-yL-jqM" id="FM0-9n-Kgf"/>
+                                    <outlet property="feedTextView" destination="k3m-Sr-51j" id="qyb-wa-mLb"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -229,7 +238,7 @@
         <scene sceneID="JRk-kT-ehJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="294-wh-6mq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Upload" image="upload" id="FMR-89-s7q"/>
+                    <tabBarItem key="tabBarItem" title="Upload" image="upload-1" id="FMR-89-s7q"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KZu-Ha-xBp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -248,7 +257,7 @@
         <scene sceneID="Yj0-FW-Nf2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gYd-qx-fTR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Feed" image="chickenleg" id="Ksf-LS-23y"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="chickenleg-1" id="Ksf-LS-23y"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dxg-Zl-60R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -266,8 +275,9 @@
     </scenes>
     <resources>
         <image name="camera_icon" width="60" height="55"/>
-        <image name="chickenleg" width="75" height="76"/>
+        <image name="chickenleg-1" width="24" height="25"/>
+        <image name="default-placeholder" width="1500" height="1500"/>
         <image name="meatly_logo" width="171" height="152"/>
-        <image name="upload" width="44" height="44"/>
+        <image name="upload-1" width="25" height="25"/>
     </resources>
 </document>

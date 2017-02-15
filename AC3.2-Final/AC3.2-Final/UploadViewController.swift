@@ -56,11 +56,25 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             metadata.contentType = "image/jpeg";
             
             let _ = spaceRef.put(jpeg!, metadata: metadata) { (metadata, error) in
+                if error != nil {
+                    let alertController = UIAlertController(title: "Upload Failded", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+                    let okay = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(okay)
+                    self.present(alertController, animated: true, completion: nil)
+                }
                 guard metadata != nil else {
+                    let alertController = UIAlertController(title: "Upload Failded", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+                    let okay = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(okay)
+                    self.present(alertController, animated: true, completion: nil)
                     print("put error")
                     return
                 }
-                print("==========Successfully put image into FireBase!!!!!!==========")
+                
+                let alertController = UIAlertController(title: "Photo Uploaded", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+                let okay = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(okay)
+                self.present(alertController, animated: true, completion: nil)
                 print(linkRef.key)
             }
             
@@ -77,7 +91,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 else {
                     print(reference)
                     // put in storage
-                    self.dismiss(animated: true, completion: nil)
                 }
             }
         }

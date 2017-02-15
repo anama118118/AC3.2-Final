@@ -16,6 +16,8 @@
 		42F701846D7174CF5CCFFEC6 /* Pods_AC3_2_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA81E3A843E8FCC07FEEE67 /* Pods_AC3_2_Final.framework */; };
 		A7C6491C1E54BF6C0058CED9 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C6491B1E54BF6C0058CED9 /* UploadViewController.swift */; };
 		A7C6491E1E54CBA60058CED9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C6491D1E54CBA60058CED9 /* Post.swift */; };
+		A7C649221E54D2CA0058CED9 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C649211E54D2CA0058CED9 /* FeedTableViewController.swift */; };
+		A7C649241E54DC850058CED9 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C649231E54DC850058CED9 /* FeedTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		5B497AAB8F237B2B41EC1F79 /* Pods-AC3.2-Final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC3.2-Final.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC3.2-Final/Pods-AC3.2-Final.debug.xcconfig"; sourceTree = "<group>"; };
 		A7C6491B1E54BF6C0058CED9 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		A7C6491D1E54CBA60058CED9 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A7C649211E54D2CA0058CED9 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		A7C649231E54DC850058CED9 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		BFA81E3A843E8FCC07FEEE67 /* Pods_AC3_2_Final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AC3_2_Final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -68,10 +72,10 @@
 			isa = PBXGroup;
 			children = (
 				1EA112FE1E53C0B1004B66E3 /* AppDelegate.swift */,
-				1EA113001E53C0B1004B66E3 /* LoginViewController.swift */,
 				1EA113021E53C0B1004B66E3 /* Main.storyboard */,
-				A7C6491B1E54BF6C0058CED9 /* UploadViewController.swift */,
-				A7C6491D1E54CBA60058CED9 /* Post.swift */,
+				A7C649251E54DC900058CED9 /* View */,
+				A7C649201E54D2550058CED9 /* ViewControllers */,
+				A7C6491F1E54D24B0058CED9 /* Model */,
 				1EA113051E53C0B1004B66E3 /* Assets.xcassets */,
 				1EA113071E53C0B1004B66E3 /* LaunchScreen.storyboard */,
 				1EA1130A1E53C0B1004B66E3 /* Info.plist */,
@@ -95,6 +99,32 @@
 				36FC7FDCA9319FBCD5A87DB8 /* Pods-AC3.2-Final.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A7C6491F1E54D24B0058CED9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7C6491D1E54CBA60058CED9 /* Post.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A7C649201E54D2550058CED9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1EA113001E53C0B1004B66E3 /* LoginViewController.swift */,
+				A7C649211E54D2CA0058CED9 /* FeedTableViewController.swift */,
+				A7C6491B1E54BF6C0058CED9 /* UploadViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A7C649251E54DC900058CED9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7C649231E54DC850058CED9 /* FeedTableViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +252,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EA113011E53C0B1004B66E3 /* LoginViewController.swift in Sources */,
+				A7C649241E54DC850058CED9 /* FeedTableViewCell.swift in Sources */,
 				A7C6491C1E54BF6C0058CED9 /* UploadViewController.swift in Sources */,
+				A7C649221E54D2CA0058CED9 /* FeedTableViewController.swift in Sources */,
 				1EA112FF1E53C0B1004B66E3 /* AppDelegate.swift in Sources */,
 				A7C6491E1E54CBA60058CED9 /* Post.swift in Sources */,
 			);
