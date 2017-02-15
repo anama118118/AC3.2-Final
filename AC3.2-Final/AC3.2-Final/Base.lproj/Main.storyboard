@@ -36,7 +36,6 @@
                                 <state key="normal" title="LOGIN"/>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sXL-6Q-rFT"/>
-                                    <segue destination="90K-MS-RVo" kind="show" identifier="loginOrRegisterSuccessSegueIdentifier" id="Jlq-ar-8Sm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVm-fm-qrg">
@@ -87,7 +86,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="czD-fb-ryW">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="90K-MS-RVo" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="loginOrRegisterSuccessStoryboardIdentifier" automaticallyAdjustsScrollViewInsets="NO" id="90K-MS-RVo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="owd-ID-r4d">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

@@ -54,7 +54,10 @@ class LoginViewController: UIViewController {
             } else {
                 guard let validUser = user else { return }
                 self.firUser = validUser
-                self.performSegue(withIdentifier: "loginOrRegisterSuccessSegueIdentifier", sender: sender)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let svc = storyboard.instantiateViewController(withIdentifier: "loginOrRegisterSuccessStoryboardIdentifier")
+                self.present(svc, animated: true, completion: nil)
+                //self.performSegue(withIdentifier: "loginOrRegisterSuccessSegueIdentifier", sender: sender)
                 self.loginButton.isEnabled = true
             }
         })
@@ -80,7 +83,10 @@ class LoginViewController: UIViewController {
             } else {
                 guard let validUser = user else { return }
                 self.firUser = validUser
-                self.performSegue(withIdentifier: "loginOrRegisterSuccessSegueIdentifier", sender: sender)
+                //self.performSegue(withIdentifier: "loginOrRegisterSuccessSegueIdentifier", sender: sender)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let svc = storyboard.instantiateViewController(withIdentifier: "loginOrRegisterSuccessStoryboardIdentifier")
+                self.present(svc, animated: true, completion: nil)
                 self.registerButton.isEnabled = true
             }
         })
