@@ -113,6 +113,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 alertController.addAction(okay)
                 self.present(alertController, animated: true, completion: nil)
                 print(linkRef.key)
+                self.uploadImageView.image = #imageLiteral(resourceName: "camera_icon")
+                self.uploadTextField.text = nil
+                self.uploadTextField.placeholder = "Add a description..."
             }
             
             guard let currentUser = FIRAuth.auth()?.currentUser else { return }
@@ -128,6 +131,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 else {
                     print(reference)
                     // put in storage
+                    
+                    // done editing
+                    self.uploadTextField.text = nil
+                    self.uploadTextField.placeholder = "Add a description"
+                    self.view.endEditing(true)
                 }
             }
         }
