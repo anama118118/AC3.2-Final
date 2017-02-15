@@ -173,7 +173,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tGR-XY-xoY">
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tGR-XY-xoY">
                                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -204,7 +204,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Unit6Final-StaGram" id="pI7-n7-hhL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="blY-Lj-qoa"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="blY-Lj-qoa">
+                            <connections>
+                                <action selector="doneButtonTapped:" destination="jqq-aR-tZz" id="rH6-Dj-Uby"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="uploadImageView" destination="tGR-XY-xoY" id="40D-so-JPl"/>

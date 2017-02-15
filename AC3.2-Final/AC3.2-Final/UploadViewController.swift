@@ -8,20 +8,79 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
+import FirebaseDatabase
 import AVFoundation
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
-
+    
+    // Outlets and variables
     @IBOutlet weak var uploadImageView: UIImageView!
     @IBOutlet weak var uploadTextField: UITextField!
     @IBOutlet var uploadImageViewTapGestureRecognizer: UITapGestureRecognizer!
     
-    
     var imagePickerController: UIImagePickerController!
+    var databaseReference: FIRDatabaseReference!
     
+    // ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.databaseReference = FIRDatabase.database().reference().child("posts")
         setTextFieldDelegates()
+    }
+    
+    // Upload to Firebase
+    @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
+        let linkRef = self.databaseReference.childByAutoId()
+        print("==========Inside put image into FireBase!!!!!!==========")
+        print("linkRef: \(linkRef)")
+        
+        guard self.uploadImageView.image != #imageLiteral(resourceName: "camera_icon") else {
+            let errorAlertController = UIAlertController(title: "Need Image", message: "Please select a photo in Photo Library", preferredStyle: UIAlertControllerStyle.alert)
+            let okay = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+            errorAlertController.addAction(okay)
+            self.present(errorAlertController, animated: true, completion: nil)
+            return
+        }
+        
+        if let image = self.uploadImageView.image,
+            let uploadComment = self.uploadTextField.text {
+            let storage = FIRStorage.storage()
+            let storageRef = storage.reference(forURL: "gs://ac-32-final.appspot.com")
+            let spaceRef = storageRef.child("images/\(linkRef.key)")
+            
+            let jpeg = UIImageJPEGRepresentation(image, 0.5)
+            
+            let metadata = FIRStorageMetadata()
+            metadata.cacheControl = "public,max-age=300";
+            metadata.contentType = "image/jpeg";
+            
+            let _ = spaceRef.put(jpeg!, metadata: metadata) { (metadata, error) in
+                guard metadata != nil else {
+                    print("put error")
+                    return
+                }
+                print("==========Successfully put image into FireBase!!!!!!==========")
+                print(linkRef.key)
+            }
+            
+            guard let currentUser = FIRAuth.auth()?.currentUser else { return }
+            
+            let post = Post(key: linkRef.key, comment: uploadComment, userId: currentUser.uid )
+            let dict = post.asDictionary
+            
+            // put in the database
+            linkRef.setValue(dict) { (error, reference) in
+                if let error = error {
+                    print(error)
+                }
+                else {
+                    print(reference)
+                    // put in storage
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     // Tap Image View for Photos Library
@@ -41,7 +100,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.imagePickerController = imagePickerController
         self.present(imagePickerController, animated: true, completion: nil)
     }
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.uploadImageView.image = image
@@ -69,5 +128,5 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.view.endEditing(true)
         return true
     }
-
+    
 }
