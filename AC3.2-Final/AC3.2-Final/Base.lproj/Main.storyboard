@@ -52,6 +52,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="yVm-fm-qrg" secondAttribute="trailing" constant="16" id="5eY-9G-RpG"/>
                             <constraint firstItem="qeo-hb-zwk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7YF-ks-XEw"/>
@@ -71,8 +72,12 @@
                             <constraint firstItem="qeo-hb-zwk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="16" id="syY-Ia-JR1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qeo-hb-zwk" secondAttribute="trailing" constant="16" id="tBM-uR-6t4"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vnM-ue-8kC" appends="YES" id="MrK-dE-fk9"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="dismissKeyboardTapGestureRecognizer" destination="vnM-ue-8kC" id="nUP-kU-ohJ"/>
                         <outlet property="emailTextField" destination="Pjy-wn-7HX" id="EBC-Eb-nbk"/>
                         <outlet property="loginButton" destination="qeo-hb-zwk" id="Q24-np-ass"/>
                         <outlet property="passwordTextField" destination="kdX-uT-351" id="jVr-3f-b8x"/>
@@ -80,6 +85,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vnM-ue-8kC">
+                    <connections>
+                        <action selector="dismissKeyboardTap:" destination="BYZ-38-t0r" id="pcD-D2-NlF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="47" y="113"/>
         </scene>

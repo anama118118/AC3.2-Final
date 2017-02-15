@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet var dismissKeyboardTapGestureRecognizer: UITapGestureRecognizer!
     
     var firUser: FIRUser!
     
@@ -31,6 +32,10 @@ class LoginViewController: UIViewController {
             guard let validUser = user else { return }
             self.firUser = validUser
         })
+    }
+    
+    @IBAction func dismissKeyboardTap(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
