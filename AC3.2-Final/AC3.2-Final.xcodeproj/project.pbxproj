@@ -8,18 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		1EA112FF1E53C0B1004B66E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA112FE1E53C0B1004B66E3 /* AppDelegate.swift */; };
-		1EA113011E53C0B1004B66E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA113001E53C0B1004B66E3 /* ViewController.swift */; };
+		1EA113011E53C0B1004B66E3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA113001E53C0B1004B66E3 /* LoginViewController.swift */; };
 		1EA113041E53C0B1004B66E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA113021E53C0B1004B66E3 /* Main.storyboard */; };
 		1EA113061E53C0B1004B66E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EA113051E53C0B1004B66E3 /* Assets.xcassets */; };
 		1EA113091E53C0B1004B66E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA113071E53C0B1004B66E3 /* LaunchScreen.storyboard */; };
 		1EA113131E53C130004B66E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1EA113121E53C130004B66E3 /* GoogleService-Info.plist */; };
 		42F701846D7174CF5CCFFEC6 /* Pods_AC3_2_Final.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA81E3A843E8FCC07FEEE67 /* Pods_AC3_2_Final.framework */; };
+		A7C6491C1E54BF6C0058CED9 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C6491B1E54BF6C0058CED9 /* UploadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1EA112FB1E53C0B1004B66E3 /* AC3.2-Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AC3.2-Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EA112FE1E53C0B1004B66E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1EA113001E53C0B1004B66E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1EA113001E53C0B1004B66E3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1EA113031E53C0B1004B66E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EA113051E53C0B1004B66E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EA113081E53C0B1004B66E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -27,6 +28,7 @@
 		1EA113121E53C130004B66E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36FC7FDCA9319FBCD5A87DB8 /* Pods-AC3.2-Final.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC3.2-Final.release.xcconfig"; path = "Pods/Target Support Files/Pods-AC3.2-Final/Pods-AC3.2-Final.release.xcconfig"; sourceTree = "<group>"; };
 		5B497AAB8F237B2B41EC1F79 /* Pods-AC3.2-Final.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AC3.2-Final.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AC3.2-Final/Pods-AC3.2-Final.debug.xcconfig"; sourceTree = "<group>"; };
+		A7C6491B1E54BF6C0058CED9 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		BFA81E3A843E8FCC07FEEE67 /* Pods_AC3_2_Final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AC3_2_Final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -64,8 +66,9 @@
 			isa = PBXGroup;
 			children = (
 				1EA112FE1E53C0B1004B66E3 /* AppDelegate.swift */,
-				1EA113001E53C0B1004B66E3 /* ViewController.swift */,
+				1EA113001E53C0B1004B66E3 /* LoginViewController.swift */,
 				1EA113021E53C0B1004B66E3 /* Main.storyboard */,
+				A7C6491B1E54BF6C0058CED9 /* UploadViewController.swift */,
 				1EA113051E53C0B1004B66E3 /* Assets.xcassets */,
 				1EA113071E53C0B1004B66E3 /* LaunchScreen.storyboard */,
 				1EA1130A1E53C0B1004B66E3 /* Info.plist */,
@@ -190,7 +193,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FF10A47D6146A0ACCEAFE9C7 /* [CP] Copy Pods Resources */ = {
@@ -215,7 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EA113011E53C0B1004B66E3 /* ViewController.swift in Sources */,
+				1EA113011E53C0B1004B66E3 /* LoginViewController.swift in Sources */,
+				A7C6491C1E54BF6C0058CED9 /* UploadViewController.swift in Sources */,
 				1EA112FF1E53C0B1004B66E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "AC3.2-Final/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nyc.c4q.AC3-2-Final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +360,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "AC3.2-Final/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nyc.c4q.AC3-2-Final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
