@@ -17,6 +17,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     // Outlets and variables
     @IBOutlet weak var uploadImageView: UIImageView!
     @IBOutlet weak var uploadTextField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var uploadImageViewTapGestureRecognizer: UITapGestureRecognizer!
     
     var imagePickerController: UIImagePickerController!
@@ -27,8 +28,44 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         self.databaseReference = FIRDatabase.database().reference().child("posts")
         setTextFieldDelegates()
+        registerForKeyboardNotifications()
     }
     
+    // Keyboard
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(_ notification: Notification) {
+        if let info = notification.userInfo,
+            let sizeString = info[UIKeyboardFrameBeginUserInfoKey] as? NSValue {
+
+            let keyboardSize = sizeString.cgRectValue
+            
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+            
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+            
+            var rect = self.view.frame
+            
+            rect.size.height -= keyboardSize.height
+            
+            if let field = uploadTextField {
+                if !rect.contains(field.frame.origin) {
+                    scrollView.scrollRectToVisible(field.frame, animated: true)
+                }
+            }
+        }
+    }
+    
+    func keyboardWillHide(_ notification: Notification) {
+        scrollView.contentInset = .zero;
+        scrollView.scrollIndicatorInsets = .zero;
+    }
+
     // Upload to Firebase
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         let linkRef = self.databaseReference.childByAutoId()

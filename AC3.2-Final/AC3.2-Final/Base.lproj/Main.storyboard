@@ -172,44 +172,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SyT-P3-KXj">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SyT-P3-KXj">
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" placeholder="Add a description..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oO4-4y-KXP">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EYm-WS-rxN">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                                        <subviews>
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tGR-XY-xoY">
+                                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="quK-ah-sxs" appends="YES" id="XoU-Ty-AKw"/>
+                                                </connections>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" placeholder="Add a description..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oO4-4y-KXP">
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="k4m-di-RMj"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="163" id="B6G-de-NX4"/>
+                                            <constraint firstAttribute="trailing" secondItem="tGR-XY-xoY" secondAttribute="trailing" id="2au-VR-ZJS"/>
+                                            <constraint firstAttribute="bottom" secondItem="oO4-4y-KXP" secondAttribute="bottom" constant="12" id="H24-M3-xoa"/>
+                                            <constraint firstItem="oO4-4y-KXP" firstAttribute="top" secondItem="tGR-XY-xoY" secondAttribute="bottom" constant="8" id="IeT-5p-pMg"/>
+                                            <constraint firstItem="tGR-XY-xoY" firstAttribute="top" secondItem="EYm-WS-rxN" secondAttribute="top" constant="8" id="LbQ-A4-BB8"/>
+                                            <constraint firstItem="tGR-XY-xoY" firstAttribute="leading" secondItem="EYm-WS-rxN" secondAttribute="leading" id="cyV-9l-txI"/>
+                                            <constraint firstAttribute="trailing" secondItem="oO4-4y-KXP" secondAttribute="trailing" constant="8" id="hHy-do-8Lb"/>
+                                            <constraint firstItem="oO4-4y-KXP" firstAttribute="leading" secondItem="EYm-WS-rxN" secondAttribute="leading" constant="8" id="q3Q-Ce-EiK"/>
                                         </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_icon" translatesAutoresizingMaskIntoConstraints="NO" id="tGR-XY-xoY">
-                                        <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="quK-ah-sxs" appends="YES" id="XoU-Ty-AKw"/>
-                                        </connections>
-                                    </imageView>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="oO4-4y-KXP" secondAttribute="trailing" constant="22" id="70E-jx-nA7"/>
-                                    <constraint firstItem="oO4-4y-KXP" firstAttribute="centerX" secondItem="SyT-P3-KXj" secondAttribute="centerX" id="8Tz-wv-rNf"/>
-                                    <constraint firstItem="oO4-4y-KXP" firstAttribute="leading" secondItem="tGR-XY-xoY" secondAttribute="leading" id="FXW-Ca-OSs"/>
-                                    <constraint firstItem="oO4-4y-KXP" firstAttribute="bottom" secondItem="SyT-P3-KXj" secondAttribute="bottomMargin" id="PCt-zQ-lT9"/>
-                                    <constraint firstItem="oO4-4y-KXP" firstAttribute="top" secondItem="tGR-XY-xoY" secondAttribute="bottom" constant="8" id="pPj-CZ-Obk"/>
-                                    <constraint firstItem="oO4-4y-KXP" firstAttribute="top" secondItem="SyT-P3-KXj" secondAttribute="top" constant="350" id="woa-rE-86y"/>
+                                    <constraint firstAttribute="bottom" secondItem="EYm-WS-rxN" secondAttribute="bottom" constant="50" id="eRb-EZ-8x9"/>
+                                    <constraint firstItem="EYm-WS-rxN" firstAttribute="top" secondItem="SyT-P3-KXj" secondAttribute="top" constant="64" id="f0O-Zf-EgW"/>
+                                    <constraint firstItem="EYm-WS-rxN" firstAttribute="leading" secondItem="SyT-P3-KXj" secondAttribute="leading" id="l7D-D3-Oho"/>
+                                    <constraint firstAttribute="trailing" secondItem="EYm-WS-rxN" secondAttribute="trailing" id="pJw-As-Ytn"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="tGR-XY-xoY" secondAttribute="trailing" constant="-18" id="0zY-Pu-YxM"/>
-                            <constraint firstItem="tGR-XY-xoY" firstAttribute="width" secondItem="UNf-v9-adC" secondAttribute="width" id="7ZR-9A-qzH"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="SyT-P3-KXj" secondAttribute="bottom" constant="37" id="K9H-RE-a7L"/>
+                            <constraint firstAttribute="bottom" secondItem="SyT-P3-KXj" secondAttribute="bottom" id="K9H-RE-a7L"/>
                             <constraint firstItem="SyT-P3-KXj" firstAttribute="centerX" secondItem="UNf-v9-adC" secondAttribute="centerX" id="N0v-bH-hEt"/>
-                            <constraint firstItem="SyT-P3-KXj" firstAttribute="leading" secondItem="UNf-v9-adC" secondAttribute="leadingMargin" constant="-36" id="ZX0-jG-ndL"/>
-                            <constraint firstItem="tGR-XY-xoY" firstAttribute="height" secondItem="UNf-v9-adC" secondAttribute="width" id="eAT-ig-Yi1"/>
-                            <constraint firstItem="tGR-XY-xoY" firstAttribute="leading" secondItem="UNf-v9-adC" secondAttribute="leading" constant="2" id="rog-tw-Wjw"/>
-                            <constraint firstItem="SyT-P3-KXj" firstAttribute="top" secondItem="UNf-v9-adC" secondAttribute="topMargin" constant="41" id="ysy-Ct-6nS"/>
+                            <constraint firstItem="tGR-XY-xoY" firstAttribute="width" secondItem="UNf-v9-adC" secondAttribute="width" id="YBB-8s-evQ"/>
+                            <constraint firstItem="SyT-P3-KXj" firstAttribute="leading" secondItem="UNf-v9-adC" secondAttribute="leading" id="ZX0-jG-ndL"/>
+                            <constraint firstItem="tGR-XY-xoY" firstAttribute="height" secondItem="UNf-v9-adC" secondAttribute="width" id="tbq-Tg-ez4"/>
+                            <constraint firstItem="SyT-P3-KXj" firstAttribute="top" secondItem="UNf-v9-adC" secondAttribute="top" id="ysy-Ct-6nS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Unit6Final-StaGram" id="pI7-n7-hhL">
@@ -220,6 +231,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="scrollView" destination="SyT-P3-KXj" id="2J7-rZ-59H"/>
                         <outlet property="uploadImageView" destination="tGR-XY-xoY" id="40D-so-JPl"/>
                         <outlet property="uploadImageViewTapGestureRecognizer" destination="quK-ah-sxs" id="o9X-Yk-4vi"/>
                         <outlet property="uploadTextField" destination="oO4-4y-KXP" id="RP6-qZ-gM9"/>

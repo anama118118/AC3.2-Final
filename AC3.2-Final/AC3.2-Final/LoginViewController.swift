@@ -21,12 +21,22 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FIRAuth.auth()?.signInAnonymously(completion: { (user: FIRUser?, error: Error?) in
+            if error != nil {
+                let errorAlertController = UIAlertController(title: "Sign In Anonymously Failed", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                let okay = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+                errorAlertController.addAction(okay)
+                self.present(errorAlertController, animated: true, completion: nil)
+            }
+            guard let validUser = user else { return }
+            self.firUser = validUser
+        })
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         guard let userEmail = emailTextField.text,
             let userPassword = passwordTextField.text else {
-                let errorAlertController = UIAlertController(title: " Login Failed", message: "Missing information in Email/ Password", preferredStyle: UIAlertControllerStyle.alert)
+                let errorAlertController = UIAlertController(title: "Login Failed", message: "Missing information in Email/ Password", preferredStyle: UIAlertControllerStyle.alert)
                 let okay = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
                 errorAlertController.addAction(okay)
                 self.present(errorAlertController, animated: true, completion: nil)
@@ -75,11 +85,5 @@ class LoginViewController: UIViewController {
             }
         })
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "loginOrRegisterSuccessSegueIdentifier" {
-//            let mainTabViewController = segue.destination
-//        }
-//    }
 }
 
